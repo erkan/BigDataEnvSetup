@@ -75,6 +75,8 @@ sudo pip3 install --upgrade pip
 sudo pip install --upgrade jupyter matplotlib numpy pandas scipy scikit-learn
 sudo pip3 install --upgrade jupyter matplotlib numpy pandas scipy scikit-learn 
 
+#Anaconda and Tensorflow Installation:
+
 wget https://repo.anaconda.com/archive/Anaconda2-$ANACONDA2_VERSION-Linux-x86_64.sh
 bash Anaconda2-$ANACONDA2_VERSION-Linux-x86_64.sh
 wget https://repo.anaconda.com/archive/Anaconda3-$ANACONDA3_VERSION-Linux-x86_64.sh
