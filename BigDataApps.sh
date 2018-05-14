@@ -1,4 +1,5 @@
-##!/bin/bash
+#!/bin/bash
+user=data
 HADOOP_VERSION=3.1.0
 SPARK_VERSION=2.3.0
 ZOOKEEPER_VERSION=3.4.12
@@ -6,6 +7,9 @@ KAFKA_VERSION=1.1.0
 SCALA_VERSION=2.12
 AMBARI_VERSION=2.6.1.5
 RSTUDIO_VERSION=1.1.447
+ANACONDA2_VERSION=5.1.0
+ANACONDA3_VERSION=5.1.0
+TENSORFLOW_VERSION=1.8.0
 wget http://ftp.itu.edu.tr/Mirror/Apache/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 sleep 2
 wget http://ftp.itu.edu.tr/Mirror/Apache/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz
@@ -71,3 +75,15 @@ sudo pip3 install --upgrade pip
 sudo pip install --upgrade jupyter matplotlib numpy pandas scipy scikit-learn
 sudo pip3 install --upgrade jupyter matplotlib numpy pandas scipy scikit-learn 
 
+wget https://repo.anaconda.com/archive/Anaconda2-$ANACONDA2_VERSION-Linux-x86_64.sh
+bash Anaconda2-$ANACONDA2_VERSION-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-$ANACONDA3_VERSION-Linux-x86_64.sh
+bash Anaconda3-$ANACONDA3_VERSION-Linux-x86_64.sh
+export PATH="/home/$user/anaconda2/bin:$PATH"
+conda create -n tensorflow pip python=2.7
+source activate tensorflow
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-$TENSORFLOW_VERSION-cp27-none-linux_x86_64.whl
+export PATH="/home/$user/anaconda3/bin:$PATH"
+conda create -n tensorflow3 pip python=3.6
+source activate tensorflow3
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-$TENSORFLOW_VERSION-cp36-cp36m-linux_x86_64.whl
